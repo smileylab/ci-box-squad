@@ -1,0 +1,34 @@
+version: '2'
+
+services:
+  squad:
+    container_name: squad
+    hostname: squad
+    build:
+      context: ./
+      args:
+        # Version of squad (release number or 'master')
+        version: "master"
+        # Squad http port (internal)
+        port_http: 80
+        # List of additional packages to install (e.g. "vim gcc")
+        extra_packages: ""
+        # Administator username
+        admin_username: "admin"
+        # Administator password
+        admin_password: "password"
+        # Administator email
+        admin_email: "admin@localhost.com"
+        # Initial Group to create
+        group: "Team-Linaro"
+        # List of initial projects to create
+        projects: "Project-A Project-B"
+        # If lava backend is used, lava server hostname or IP (e.g. "lava_server")
+        lava_server: ""
+        # If lava backend is used, lava username to connect with (e.g. "admin")
+        lava_username: ""
+        # If lava backend is used, lava token to connect with (e.g. "d0siRzClNHWNtUYJbpmjOPEyPp0QLCKqQtDGTftN")
+        lava_token: ""
+    restart: always
+    ports:
+      - "8000:80" # expose http to outside
