@@ -48,6 +48,7 @@ RUN cd /app && python3 setup.py develop
 
 COPY ./scripts/populate.sh /root/populate.sh
 COPY ./scripts/create_project.py /root/create_project.py
+COPY ./scripts/create_backend_lava.py /root/create_backend_lava.py
 COPY ./scripts/entrypoint.sh /root/entrypoint.sh
 
 #USER squad
@@ -63,9 +64,9 @@ ENV SQUAD_PORT=${port_http}
 ARG lava_server=""
 ENV LAVA_SERVER=${lava_server}
 ARG lava_username=""
-ENV LAVA_SQUAD_USER=${lava_username}
+ENV LAVA_USERNAME=${lava_username}
 ARG lava_token=""
-ENV LAVA_SQUAD_TOKEN=${lava_token}
+ENV LAVA_TOKEN=${lava_token}
 
 ARG group=""
 ENV SQUAD_GROUP=${group}
