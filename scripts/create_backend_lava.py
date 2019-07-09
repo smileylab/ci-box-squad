@@ -83,7 +83,7 @@ def main():
         "token": args.lava_token,
         "implementation_type": "lava",
         "backend_settings": "CI_LAVA_SEND_ADMIN_EMAIL: false\r\nCI_LAVA_HANDLE_SUITE: true",
-        "poll_interval": 600,
+        "poll_interval": 60,
         "max_fetch_attempts": 3,
         "poll_enabled": True}
     print(backend_data)
