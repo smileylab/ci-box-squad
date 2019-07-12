@@ -36,7 +36,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -q -y install ${extra_packages}
 
 ARG version="master"
 WORKDIR /app
-ADD https://github.com/Linaro/squad/archive/${version}.zip .
+#ADD https://github.com/Linaro/squad/archive/${version}.zip .
+ADD https://github.com/mwasilew/squad/archive/${version}.zip .
+
 RUN unzip ${version}.zip
 RUN mv squad-${version}/* .
 
