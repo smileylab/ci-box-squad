@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -ex
+
 handler() {
 	exit 0
 }
@@ -17,7 +19,7 @@ squad --bind 0.0.0.0:${SQUAD_PORT} &
 sleep 20
 
 squad-admin createsuperuser --noinput --username ${1} --email ${3} || true
-squad-admin tokens update ${1} ${4}
+squad-admin users set-token ${1} ${4}
 
 for project in ${SQUAD_PROJECTS} ; do
   python3 /root/create_project.py --url http://localhost:${SQUAD_PORT}/api/ --token "${4}" --group ${SQUAD_GROUP} --project ${project}
