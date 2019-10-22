@@ -16,7 +16,7 @@ fi
 squad --bind 0.0.0.0:${SQUAD_PORT} &
 
 #fixme
-sleep 20
+sleep 120
 
 squad-admin createsuperuser --noinput --username ${1} --email ${3} || true
 squad-admin users set-token ${1} ${4}
