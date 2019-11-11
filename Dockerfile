@@ -36,14 +36,11 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -q -y install ${extra_packages}
 
 ARG version="master"
 WORKDIR /app
-#ADD https://github.com/Linaro/squad/archive/${version}.zip .
-ADD https://github.com/loicpoulain/squad/archive/${version}.zip .
-
-
+ADD https://github.com/Linaro/squad/archive/${version}.zip .
 RUN unzip ${version}.zip
-RUN mv squad-${version}/* .
+RUN mv squad-${version}/* . && mv squad-${version}/.[acdgmt]* . && rm -fr ${version}.zip && rm -fr squad-${version}
 
-RUN ln -sfT squad/container_settings.py /app/squad/local_settings.py
+RUN ln -sfT container_settings.py /app/squad/local_settings.py
 
 RUN python3 -m squad.frontend
 RUN ./manage.py collectstatic --noinput --verbosity 0
