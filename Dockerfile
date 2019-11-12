@@ -78,7 +78,7 @@ ENV SQUAD_PROJECTS=${projects}
 
 ARG admin_username=root
 ARG admin_password=password
-ARG admin_email=$admin_password@localhost.com
+ARG admin_email=$admin_username@localhost.com
 ARG admin_token="2d703e793ea345efdbab52d95fe33ec715bcc2d4"
 RUN /root/populate.sh ${admin_username} ${admin_password} ${admin_email} ${admin_token}
 
