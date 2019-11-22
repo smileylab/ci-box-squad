@@ -27,7 +27,7 @@ done
 
 # Add lava backend if any
 if [ -n "${LAVA_SERVER}" ]; then
-	python3 /root/create_backend_lava.py --url http://localhost:${SQUAD_PORT}/api/ --token "${4}" --lava-url http://${LAVA_SERVER}/RPC2 --lava-token ${LAVA_TOKEN} --lava-username ${LAVA_USERNAME}
+	python3 /root/create_backend_lava.py --url http://localhost:${SQUAD_PORT}/api/ --token "${4}" --lava-url http://${LAVA_SERVER}:${LAVA_RPC_PORT}/RPC2 --lava-token ${LAVA_TOKEN} --lava-username ${LAVA_USERNAME}
 fi
 
 exit 0
