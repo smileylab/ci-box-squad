@@ -87,8 +87,8 @@ def main():
         "group": group,
         "is_public": True,
 		"enabled_plugins_list": [],
-        "wait_before_notification": 3600,
-        "notification_timeout": 36000,
+        "wait_before_notification": 120,
+        "notification_timeout": 300,
         "moderate_notifications": False,
         "html_mail": True}
     project = find_or_create(project_url, project_data, headers)
